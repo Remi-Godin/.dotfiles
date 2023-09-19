@@ -118,7 +118,7 @@ fi
 . "$HOME/.cargo/env"
 
 alias glog='git log --graph --decorate --oneline'
-alias cdnvim='cd .config/nvim'
+alias cdnvim='cd; cd .config/nvim'
 alias ..='cd ..'
 alias intellij='sh /home/regodin/Applications/IntelliJ/ideaIC-2023.1.3/idea-IC-231.9161.38/bin/idea.sh'
 alias godot=launch_godot
