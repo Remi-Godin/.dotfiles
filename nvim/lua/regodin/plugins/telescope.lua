@@ -9,7 +9,7 @@ return {
 
         -- keymap
         local keymap = vim.keymap
-        keymap.set('n', '<leader>ff', "<cmd>Telescope find_files<cr>", {})
+        keymap.set('n', '<leader>pf', "<cmd>Telescope find_files<cr>", {})
         keymap.set('n', '<leader>fg', "<cmd>Telescope live_grep<cr>", {})
         keymap.set('n', '<leader>fb', "<cmd>Telescope buffers<cr>", {})
     end
