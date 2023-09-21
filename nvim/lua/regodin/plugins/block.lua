@@ -1,6 +1,6 @@
 return {
     "HampusHauffman/block.nvim",
-    enabled = false,
+    enabled = true,
     config = function()
         require("block").setup({
             automatic = true,
