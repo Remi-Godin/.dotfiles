@@ -123,6 +123,7 @@ alias ..='cd ..'
 alias intellij='sh /home/regodin/Applications/IntelliJ/ideaIC-2023.1.3/idea-IC-231.9161.38/bin/idea.sh'
 alias godot=launch_godot
 alias plptool=launch_plptool
+alias vi=/home/regodin/Programming/Neovim/nvim.appimage
 
 launch_godot(){
     ./Godot/Versions/4.2-dev4/Godot_v4.2-dev4_linux.x86_64 &
