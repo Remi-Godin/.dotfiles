@@ -3,7 +3,7 @@ return {
     enabled = true,
     config = function()
         require("block").setup({
-            automatic = true,
+            automatic = false,
         })
     end
 }
