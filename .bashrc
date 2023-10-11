@@ -125,6 +125,25 @@ alias godot=launch_godot
 alias plptool=launch_plptool
 alias vi=nvim.appimage
 alias grip='grip -b'
+alias vpn_enable=vpn_enable
+alias vpn_disable=vpn_disable
+
+vpn_enable(){
+    mullvad connect
+    sleep 1
+    mullvad lockdown-mode set on
+    sleep 3
+    mullvad status
+}
+
+vpn_disable(){
+    killall qbittorrent
+    sleep 3
+    mullvad lockdown-mode set off
+    mullvad disconnect
+    sleep 3
+    mullvad status
+}
 
 launch_godot(){
     ./Godot/Versions/4.2-dev4/Godot_v4.2-dev4_linux.x86_64 &
