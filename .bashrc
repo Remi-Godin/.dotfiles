@@ -117,15 +117,6 @@ if ! shopt -oq posix; then
 fi
 . "$HOME/.cargo/env"
 
-alias glog='git log --graph --decorate --oneline'
-alias cdnvim='cd; cd .config/nvim'
-alias ..='cd ..'
-alias plptool=launch_plptool
-alias vi=nvim.appimage
-alias grip='grip -b'
-alias vpn-enable=vpn_enable
-alias vpn-disable=vpn_disable
-alias nvim-update=update_nvim
 
 update_nvim(){
     rm -f /home/regodin/.local/bin/nvim.appimage
@@ -159,3 +150,14 @@ launch_plptool(){
     plptool5 &
     exit
 }
+
+alias glog='git log --graph --decorate --oneline'
+alias cdnvim='cd; cd .config/nvim'
+alias ..='cd ..'
+alias plptool=launch_plptool
+alias vi=nvim.appimage
+alias grip='grip -b'
+alias vpn-enable=vpn_enable
+alias vpn-disable=vpn_disable
+alias nvim-update=update_nvim
+alias anki="anki & exit"
