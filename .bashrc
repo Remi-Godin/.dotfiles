@@ -120,13 +120,18 @@ fi
 alias glog='git log --graph --decorate --oneline'
 alias cdnvim='cd; cd .config/nvim'
 alias ..='cd ..'
-alias intellij='sh /home/regodin/Applications/IntelliJ/ideaIC-2023.1.3/idea-IC-231.9161.38/bin/idea.sh'
-alias godot=launch_godot
 alias plptool=launch_plptool
 alias vi=nvim.appimage
 alias grip='grip -b'
-alias vpn_enable=vpn_enable
-alias vpn_disable=vpn_disable
+alias vpn-enable=vpn_enable
+alias vpn-disable=vpn_disable
+alias nvim-update=update_nvim
+
+update_nvim(){
+    rm -f /home/regodin/.local/bin/nvim.appimage
+    curl -L "https://github.com/neovim/neovim/releases/download/stable/nvim.appimage" -o /home/regodin/.local/bin/nvim.appimage
+    chmod u+x /home/regodin/.local/bin/nvim.appimage
+}
 
 vpn_enable(){
     mullvad connect
