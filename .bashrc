@@ -161,3 +161,4 @@ alias vpn-enable=vpn_enable
 alias vpn-disable=vpn_disable
 alias nvim-update=update_nvim
 alias anki="anki & exit"
+alias :q=exit
