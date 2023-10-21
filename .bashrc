@@ -162,6 +162,8 @@ alias vpn-disable=vpn_disable
 alias nvim-update=update_nvim
 alias anki="anki & exit"
 alias :q=exit
-alias repo='cd /home/regodin/Programming/Repos'
+alias projects='cd /home/regodin/Programming/Repos/projects; ll'
+alias practice='cd /home/regodin/Programming/Repos/practice; ll'
+alias school='cd /home/regodin/Programming/Repos/school; ll'
 
 . ~/.fancy-git/prompt.sh
