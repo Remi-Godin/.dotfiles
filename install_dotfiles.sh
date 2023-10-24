@@ -34,9 +34,6 @@ curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 # Make kitty default
 sudo update-alternatives --config x-terminal-emulator
 
-# Get dotfiles from my repo
-git clone https://github.com/Remi-Godin/.dotfiles.git
-
 ln -sf ~/.dotfiles/.bashrc ~/.bashrc
 ln -sf ~/.dotfiles/nvim/ ~/.config/
 ln -sf ~/.dotfiles/kitty/ ~/.config/
