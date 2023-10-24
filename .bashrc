@@ -165,5 +165,6 @@ alias :q=exit
 alias projects='cd /home/regodin/Programming/Repos/projects; ll'
 alias practice='cd /home/regodin/Programming/Repos/practice; ll'
 alias school='cd /home/regodin/Programming/Repos/school; ll'
+alias hack-the-president='gnome-terminal -- ssh -i /home/regodin/.ssh/presidentKey.pem ec2-user@34.217.69.183'
 
 . ~/.fancy-git/prompt.sh
