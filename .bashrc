@@ -119,9 +119,9 @@ fi
 
 
 update_nvim(){
-    rm -f /home/regodin/.local/bin/nvim.appimage
-    curl -L "https://github.com/neovim/neovim/releases/download/stable/nvim.appimage" -o /home/regodin/.local/bin/nvim.appimage
-    chmod u+x /home/regodin/.local/bin/nvim.appimage
+    rm -f /usr/local/bin/nvim.appimage
+    curl -L "https://github.com/neovim/neovim/releases/download/stable/nvim.appimage" -o /usr/local/bin/nvim.appimage
+    chmod u+x /usr/local/bin/nvim.appimage
 }
 
 vpn_enable(){
