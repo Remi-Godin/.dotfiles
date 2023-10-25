@@ -19,6 +19,10 @@ then
     rm -rf ~/.config/nvim
     rm -rf ~/.config/kitty
 
+ln -sf ~/.dotfiles/.bashrc ~/.bashrc
+ln -sf ~/.dotfiles/nvim/ ~/.config/
+ln -sf ~/.dotfiles/kitty/ ~/.config/
+
 # Install lazygit
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
@@ -34,8 +38,5 @@ curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 # Make kitty default
 sudo update-alternatives --config x-terminal-emulator
 
-ln -sf ~/.dotfiles/.bashrc ~/.bashrc
-ln -sf ~/.dotfiles/nvim/ ~/.config/
-ln -sf ~/.dotfiles/kitty/ ~/.config/
 
 fi
