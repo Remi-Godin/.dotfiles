@@ -37,7 +37,7 @@ then
     
     # Create links
     ln -sf ~/.dotfiles/.bashrc ~/.bashrc
-    ln -sf ~/.dotfiles/nvim/ ~/.config/nvim/
+    ln -sf ~/.dotfiles/nvim/ ~/.config/nvim
     ln -sf ~/.dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
     ln -sf ~/.dotfiles/fancygit/app_config ~/.fancy-git/app_config
 
