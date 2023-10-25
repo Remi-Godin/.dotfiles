@@ -21,13 +21,23 @@ then
     mkdir ~/.local/bin
 
     # Install lazygit
+    if ! command -v lazygit &> /dev/null
+    then
     LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
     curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
     tar xf lazygit.tar.gz lazygit
     sudo install lazygit /usr/local/bin
+    else
+        echo "Lazygit already exists..."
+    fi
 
     # Install fancygit
+    if ! command -v fancygit &> /dev/null
+    then
     curl -sS https://raw.githubusercontent.com/diogocavilha/fancy-git/master/install.sh | sh
+    else
+        echo "Fancygit already exists..."
+    fi
 
     # Install kitty
     curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
