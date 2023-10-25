@@ -14,15 +14,11 @@ then
     cd
     rm -rf ~/.config/nvim
     rm -rf ~/.config/kitty
+    rm -f ~/.fancy-git/app_config
 
     # Create missing folders
-    mkdir ~/.config
+    mkdir ~/.config/kitty
     mkdir ~/.local/bin
-
-    # Create links
-    ln -sf ~/.dotfiles/.bashrc ~/.bashrc
-    ln -sf ~/.dotfiles/nvim/ ~/.config/
-    ln -sf ~/.dotfiles/kitty/ ~/.config/
 
     # Install lazygit
     LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
@@ -35,7 +31,14 @@ then
 
     # Install kitty
     curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+
     # Make kitty default
     sudo update-alternatives --config x-terminal-emulator
+    
+    # Create links
+    ln -sf ~/.dotfiles/.bashrc ~/.bashrc
+    ln -sf ~/.dotfiles/nvim/ ~/.config/nvim/
+    ln -sf ~/.dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
+    ln -sf ~/.dotfiles/fancygit/app_config ~/.fancy-git/app_config
 
 fi
