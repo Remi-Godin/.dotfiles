@@ -20,6 +20,7 @@ then
     rm -rf ~/.config/kitty
 
 mkdir ~/.config
+mkdir ~/.local
 ln -sf ~/.dotfiles/.bashrc ~/.bashrc
 ln -sf ~/.dotfiles/nvim/ ~/.config/
 ln -sf ~/.dotfiles/kitty/ ~/.config/
