@@ -8,31 +8,34 @@ read -p "This will delete all related directories and files from your local syst
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
+    sudo apt-get update
+    sudo apt-get install curl
+    # Delete current files and folders
     cd
-    rm -rf ~/.dotfiles
     rm -rf ~/.config/nvim
     rm -rf ~/.config/kitty
 
-mkdir ~/.config
-mkdir ~/.local
-ln -sf ~/.dotfiles/.bashrc ~/.bashrc
-ln -sf ~/.dotfiles/nvim/ ~/.config/
-ln -sf ~/.dotfiles/kitty/ ~/.config/
+    # Create missing folders
+    mkdir ~/.config
+    mkdir ~/.local/bin
 
-# Install lazygit
-LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-tar xf lazygit.tar.gz lazygit
-sudo install lazygit /usr/local/bin
+    # Create links
+    ln -sf ~/.dotfiles/.bashrc ~/.bashrc
+    ln -sf ~/.dotfiles/nvim/ ~/.config/
+    ln -sf ~/.dotfiles/kitty/ ~/.config/
 
-# Install fancygit
-curl -sS https://raw.githubusercontent.com/diogocavilha/fancy-git/master/install.sh | sh
+    # Install lazygit
+    LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+    curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+    tar xf lazygit.tar.gz lazygit
+    sudo install lazygit /usr/local/bin
 
-# Install kitty
-curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+    # Install fancygit
+    curl -sS https://raw.githubusercontent.com/diogocavilha/fancy-git/master/install.sh | sh
 
-# Make kitty default
-sudo update-alternatives --config x-terminal-emulator
-
+    # Install kitty
+    curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+    # Make kitty default
+    sudo update-alternatives --config x-terminal-emulator
 
 fi
