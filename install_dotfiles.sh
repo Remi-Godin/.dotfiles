@@ -19,6 +19,7 @@ then
     rm -rf ~/.config/nvim
     rm -rf ~/.config/kitty
 
+mkdir ~/.config
 ln -sf ~/.dotfiles/.bashrc ~/.bashrc
 ln -sf ~/.dotfiles/nvim/ ~/.config/
 ln -sf ~/.dotfiles/kitty/ ~/.config/
