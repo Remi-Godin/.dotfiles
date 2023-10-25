@@ -4,12 +4,6 @@
 #
 # If you want to link a file, the source does not end with a slash and neither does
 # the destination.
-if [ "$EUID" -ne 0 ]
-then
-    echo "Please run as root"
-    exit 1
-fi
-
 read -p "This will delete all related directories and files from your local system. Continue? (Y/N)" -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]
