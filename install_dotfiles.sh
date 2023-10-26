@@ -35,6 +35,7 @@ then
     if ! command -v fancygit &> /dev/null
     then
     curl -sS https://raw.githubusercontent.com/diogocavilha/fancy-git/master/install.sh | sh
+    sed -i '$ d' ~/.dotfiles/.bashrc # Removes the added line that fancygit add to bashrc
     else
         echo "Fancygit already exists..."
     fi
@@ -43,6 +44,7 @@ then
     curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
     # Make kitty default
+    sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/kitty 50
     sudo update-alternatives --config x-terminal-emulator
     
     # Create links
