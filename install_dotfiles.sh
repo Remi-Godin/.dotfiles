@@ -17,6 +17,10 @@ then
     rm -f ~/.fancy-git/app_config
 
     # Create missing folders
+    mkdir ~/Programming/Repos/practice
+    mkdir ~/Programming/Repos/projects
+    mkdir ~/Programming/Repos/school
+
     mkdir ~/.config/kitty
     mkdir ~/.local/bin
 
