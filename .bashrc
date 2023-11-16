@@ -124,13 +124,6 @@ if ! shopt -oq posix; then
 fi
 . "$HOME/.cargo/env"
 
-
-update_nvim(){
-    rm -f /usr/local/bin/nvim.appimage
-    curl -L "https://github.com/neovim/neovim/releases/download/stable/nvim.appimage" -o /usr/local/bin/nvim.appimage
-    chmod u+x /usr/local/bin/nvim.appimage
-}
-
 vpn_enable(){
     mullvad connect
     sleep 1
@@ -172,7 +165,8 @@ alias anki="anki & exit"
 alias :q=exit
 alias projects='cd /home/regodin/Programming/Repos/projects; ll'
 alias practice='cd /home/regodin/Programming/Repos/practice; ll'
-alias school='cd /home/regodin/Programming/Repos/school; ll'
-alias hack-the-president='gnome-terminal -- ssh -i /home/regodin/.ssh/presidentKey.pem ec2-user@34.217.69.183'
+alias school='cd /home/regodin/Programming/Repos/school/arizona-state-university; ll'
+alias hack-the-president='ssh -i /home/regodin/.ssh/presidentKey.pem ec2-user@34.217.69.183'
+alias dotfiles='cd /home/regodin/.dotfiles'
 
 . ~/.fancy-git/prompt.sh

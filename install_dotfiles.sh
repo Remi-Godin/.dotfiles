@@ -11,20 +11,21 @@ then
     sudo apt-get update
     sudo apt-get install curl
     # Delete current files and folders
+    echo "Deleting default directories..."
     cd
     rm -rf ~/.config/nvim
-    rm -rf ~/.config/kitty
     rm -f ~/.fancy-git/app_config
 
     # Create missing folders
+    echo "Creating missing directories..."
     mkdir ~/Programming/Repos/practice
     mkdir ~/Programming/Repos/projects
     mkdir ~/Programming/Repos/school
-
-    mkdir ~/.config/kitty
+    mkdir ~/.config
     mkdir ~/.local/bin
 
     # Install lazygit
+    echo "Installing lazygit..."
     if ! command -v lazygit &> /dev/null
     then
     LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
@@ -36,6 +37,7 @@ then
     fi
 
     # Install fancygit
+    echo "Installing fancygit"
     if ! command -v fancygit &> /dev/null
     then
     curl -sS https://raw.githubusercontent.com/diogocavilha/fancy-git/master/install.sh | sh
@@ -44,18 +46,12 @@ then
         echo "Fancygit already exists..."
     fi
 
-    # Install kitty
-    curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
-
-    # Make kitty default
-    sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/kitty 50
-    sudo update-alternatives --config x-terminal-emulator
-    
     # Create links
+    echo "Creating softlinks..."
     ln -sf ~/.dotfiles/.bashrc ~/.bashrc
     ln -sf ~/.dotfiles/nvim/ ~/.config/nvim
-    ln -sf ~/.dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
     ln -sf ~/.dotfiles/fancygit/app_config ~/.fancy-git/app_config
-    sudo ln -sf ~/.local/kitty.app/bin/kitty /usr/bin/kitty
+
+    echo "Complete"
 
 fi
