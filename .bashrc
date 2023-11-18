@@ -87,12 +87,11 @@ fi
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# Discord development
-export DISCORD_TOKEN="MTE1NzA1NjE5ODkyNzk5NTA2MA.G2Me53.EjSRxq1GTq-ohOJeFMIomyB5PpUf3AroX2EF1o"
-export GUILD_ID=1128096491123245116
-
 # C++
 export CPLUS_INCLUDE_PATH=/usr/include/c++/11:/usr/include/x86_64-linux-gnu/c++/11
+
+# Go
+export PATH=$PATH:/usr/local/go/bin
 
 # some more ls aliases
 alias ll='ls -alF'

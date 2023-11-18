@@ -14,5 +14,3 @@ bold_prompt:false
 show_host_prompt:false
 show_user_symbol_prompt:true
 fresh_file
--e 
-git_use_clear:true
