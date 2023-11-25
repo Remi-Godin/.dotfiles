@@ -90,8 +90,6 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 # C++
 export CPLUS_INCLUDE_PATH=/usr/include/c++/11:/usr/include/x86_64-linux-gnu/c++/11
 
-# Go
-export PATH=$PATH:/usr/local/go/bin
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -167,5 +165,13 @@ alias practice='cd /home/regodin/Programming/Repos/practice; ll'
 alias school='cd /home/regodin/Programming/Repos/school/arizona-state-university; ll'
 alias hack-the-president='ssh -i /home/regodin/.ssh/presidentKey.pem ec2-user@34.217.69.183'
 alias dotfiles='cd /home/regodin/.dotfiles'
+alias udemy='cd /home/regodin/Programming/Repos/udemy/backend-master-class'
+
+# Go
+export PATH=$PATH:/usr/local/go/bin
 
 . ~/.fancy-git/prompt.sh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
