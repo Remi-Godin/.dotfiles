@@ -17,8 +17,10 @@ M.config = function()
         }
     })
 
+    local _capabilities = require('cmp_nvim_lsp').default_capabilities
+
     local on_attach = function(_, _)
-        capabilities = capabilities
+        capabilities = _capabilities
         vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
         vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
         vim.keymap.set('n', '<leader>ch', vim.lsp.inlay_hint.enable, {})
