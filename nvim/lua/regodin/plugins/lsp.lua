@@ -14,6 +14,7 @@ M.config = function()
             "gopls",
             "clangd",
             "rust_analyzer",
+            "tsserver"
         }
     })
 
@@ -50,13 +51,16 @@ M.config = function()
     require('lspconfig').rust_analyzer.setup {
         on_attach = on_attach,
         cmd = {
-            "rustup", "run", "stable", "rust-analyzer",
+            "rustup", "run", "stable", "rust-analyzer"
         }
     }
     require('lspconfig').gopls.setup {
         on_attach = on_attach
     }
     require('lspconfig').clangd.setup {
+        on_attach = on_attach
+    }
+    require('lspconfig').tsserver.setup {
         on_attach = on_attach
     }
 end
