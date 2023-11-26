@@ -150,7 +150,7 @@ launch_plptool(){
 
 
 alias glog='git log --graph --decorate --oneline'
-alias cdnvim='vi ~/.config/nvim'
+alias cdnvim='cd ~/.dotfiles/nvim; vi .'
 alias ..='cd ..'
 alias plptool=launch_plptool
 alias vi=nvim
