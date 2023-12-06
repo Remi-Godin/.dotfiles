@@ -55,7 +55,16 @@ M.config = function()
         }
     }
     require('lspconfig').gopls.setup {
-        on_attach = on_attach
+        on_attach = on_attach,
+        settings = {
+            gopls = {
+                completeUnimported = true,
+                usePlaceholders = true,
+                analyses = {
+                    unusedarams = true,
+                }
+            }
+        }
     }
     require('lspconfig').clangd.setup {
         on_attach = on_attach

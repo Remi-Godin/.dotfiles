@@ -6,20 +6,32 @@ local M = {
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-cmdline",
+        {
+            "windwp/nvim-autopairs",
+            event = "InsertEnter",
+            opts = {}
+        },
         "saadparwaiz1/cmp_luasnip",
         {
             "L3MON4D3/LuaSnip",
             build = "make install_jsregexp",
-            dependencies = {"rafamadriz/friendly-snippets"}
-        }
+        },
+        "rafamadriz/friendly-snippets"
     },
 }
 
 M.config = function()
     require('luasnip.loaders.from_vscode').load{}
+    local cmp_autopairs = require("nvim-autopairs.completion.cmp")
     local luasnip = require('luasnip')
     local cmp = require("cmp")
     vim.opt.completeopt = { "menu", "menuone", "noselect" }
+    
+    -- This is required to get automatic parenthesis after autocomplete function
+    cmp.event:on(
+        'confirm_done',
+        cmp_autopairs.on_confirm_done()
+    )
 
     local has_words_before = function()
         unpack = unpack or table.unpack
