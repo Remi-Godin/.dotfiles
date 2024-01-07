@@ -14,11 +14,16 @@ M.config = function()
             "gopls",
             "clangd",
             "rust_analyzer",
-            "tsserver"
+            "tsserver",
+            "pyright",
+            "html"
         }
     })
 
-    local _capabilities = require('cmp_nvim_lsp').default_capabilities
+    --local _capabilities = require('cmp_nvim_lsp').default_capabilities -- OLD LINE
+    --This lines should make it so autocompleting functions also expands the parenthesis and parameters
+    local _capabilities = vim.lsp.protocol.make_client_capabilities()
+    _capabilities.textDocument.completion.completionItem.snippetSupport = true
 
     local on_attach = function(_, _)
         capabilities = _capabilities
@@ -50,12 +55,18 @@ M.config = function()
     }
     require('lspconfig').rust_analyzer.setup {
         on_attach = on_attach,
+        completion = {
+            callSnippet = "Both"
+        },
         cmd = {
             "rustup", "run", "stable", "rust-analyzer"
         }
     }
     require('lspconfig').gopls.setup {
         on_attach = on_attach,
+        completion = {
+            callSnippet = "Both"
+        },
         settings = {
             gopls = {
                 completeUnimported = true,
@@ -70,6 +81,12 @@ M.config = function()
         on_attach = on_attach
     }
     require('lspconfig').tsserver.setup {
+        on_attach = on_attach
+    }
+    require('lspconfig').pyright.setup {
+        on_attach = on_attach
+    }
+    require('lspconfig').html.setup {
         on_attach = on_attach
     }
 end

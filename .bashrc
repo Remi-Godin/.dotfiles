@@ -162,13 +162,18 @@ alias anki="anki & exit"
 alias :q=exit
 alias projects='cd /home/regodin/Programming/Repos/projects; ll'
 alias practice='cd /home/regodin/Programming/Repos/practice; ll'
-alias school='cd /home/regodin/Programming/Repos/school/arizona-state-university; ll'
+alias school='cd /home/regodin/Programming/Repos/school/arizona-state-university/SER222/ser222-public; ll'
 alias hack-the-president='ssh -i /home/regodin/.ssh/presidentKey.pem ec2-user@34.217.69.183'
 alias dotfiles='cd /home/regodin/.dotfiles'
 alias udemy='cd /home/regodin/Programming/Repos/udemy/backend-master-class'
+alias air='~/go/bin/air'
+alias intellij='/home/regodin/Programming/IDEs/idea-IC/bin/idea.sh & exit'
 
 # Go
 export PATH=$PATH:/usr/local/go/bin
+
+# Local env vars
+. /home/regodin/.dotfiles/load_env.sh
 
 . ~/.fancy-git/prompt.sh
 
