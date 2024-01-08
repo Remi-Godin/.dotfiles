@@ -173,7 +173,10 @@ alias intellij='/home/regodin/Programming/IDEs/idea-IC/bin/idea.sh & exit'
 export PATH=$PATH:/usr/local/go/bin
 
 # Local env vars
-. /home/regodin/.dotfiles/load_env.sh
+FILE=./load_env.sh
+if test -f "$FILE"; then
+    . /home/regodin/.dotfiles/load_env.sh
+fi
 
 . ~/.fancy-git/prompt.sh
 

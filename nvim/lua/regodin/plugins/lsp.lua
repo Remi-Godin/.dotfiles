@@ -89,6 +89,9 @@ M.config = function()
     require('lspconfig').html.setup {
         on_attach = on_attach
     }
+    require('lspconfig').jdtls.setup {
+        on_attach = on_attach
+    }
 end
 
 return M
