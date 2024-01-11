@@ -18,11 +18,11 @@ then
 
     # Create missing folders
     echo "Creating missing directories..."
-    mkdir ~/Programming/Repos/practice
-    mkdir ~/Programming/Repos/projects
-    mkdir ~/Programming/Repos/school
-    mkdir ~/.config
-    mkdir ~/.local/bin
+    mkdir -p ~/Programming/Repos/practice
+    mkdir -p ~/Programming/Repos/projects
+    mkdir -p ~/Programming/Repos/school
+    mkdir -p ~/.config
+    mkdir -p ~/.local/bin
 
     # Install lazygit
     echo "Installing lazygit..."
@@ -41,7 +41,7 @@ then
     if ! command -v fancygit &> /dev/null
     then
     curl -sS https://raw.githubusercontent.com/diogocavilha/fancy-git/master/install.sh | sh
-    sed -i '$ d' ~/.dotfiles/.bashrc # Removes the added line that fancygit add to bashrc
+    #sed -i '$ d' ~/.dotfiles/.bashrc # Removes the added line that fancygit add to bashrc
     else
         echo "Fancygit already exists..."
     fi
