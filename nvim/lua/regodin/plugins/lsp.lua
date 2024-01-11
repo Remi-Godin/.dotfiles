@@ -25,14 +25,31 @@ M.config = function()
     local _capabilities = vim.lsp.protocol.make_client_capabilities()
     _capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+    local goto_next_error_line = function ()
+        local ec = #vim.diagnostic.count(0, {
+            lnum = vim.api.nvim_win_get_cursor(0)[1]-1
+        })
+        if ec == 0 then
+            vim.diagnostic.goto_next({
+                float = {
+                    float = true,
+                    scope = "line"
+                }
+            })
+        else
+            vim.diagnostic.open_float()
+        end
+    end
+
     local on_attach = function(_, _)
         capabilities = _capabilities
         vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
         vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
         vim.keymap.set('n', '<leader>ch', vim.lsp.inlay_hint.enable, {})
 
-        vim.keymap.set('n', 'gh', vim.diagnostic.goto_prev, {})
-        vim.keymap.set('n', 'gl', vim.diagnostic.goto_next, {})
+        vim.keymap.set('n', 'gk', vim.diagnostic.goto_prev, {})
+        vim.keymap.set('n', 'gj', goto_next_error_line, {})
+        vim.keymap.set('n', 'gl', vim.diagnostic.open_float, {})
         vim.keymap.set('n', '<leader>gl', ":Telescope diagnostics<cr>", {buffer=0})
 
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
@@ -53,14 +70,17 @@ M.config = function()
     require('lspconfig').lua_ls.setup {
         on_attach = on_attach
     }
+    --require('lspconfig').rust_analyzer.setup {
+        --on_attach = on_attach,
+        --completion = {
+            --callSnippet = "Both"
+        --},
+        --cmd = {
+            --"rustup", "run", "stable", "rust-analyzer"
+        --}
+    --}
     require('lspconfig').rust_analyzer.setup {
-        on_attach = on_attach,
-        completion = {
-            callSnippet = "Both"
-        },
-        cmd = {
-            "rustup", "run", "stable", "rust-analyzer"
-        }
+        on_attach = on_attach
     }
     require('lspconfig').gopls.setup {
         on_attach = on_attach,

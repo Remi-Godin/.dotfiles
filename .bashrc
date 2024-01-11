@@ -167,7 +167,7 @@ alias hack-the-president='ssh -i /home/regodin/.ssh/presidentKey.pem ec2-user@34
 alias dotfiles='cd /home/regodin/.dotfiles'
 alias udemy='cd /home/regodin/Programming/Repos/udemy/backend-master-class'
 alias air='~/go/bin/air'
-alias intellij='/home/regodin/Programming/IDEs/idea-IC/bin/idea.sh & exit'
+alias intellij='/home/regodin/.intellij/bin/idea.sh & exit'
 
 # Go
 export PATH=$PATH:/usr/local/go/bin

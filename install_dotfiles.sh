@@ -41,7 +41,6 @@ then
     if ! command -v fancygit &> /dev/null
     then
     curl -sS https://raw.githubusercontent.com/diogocavilha/fancy-git/master/install.sh | sh
-    #sed -i '$ d' ~/.dotfiles/.bashrc # Removes the added line that fancygit add to bashrc
     else
         echo "Fancygit already exists..."
     fi
