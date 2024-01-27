@@ -173,10 +173,17 @@ alias intellij='/home/regodin/.intellij/bin/idea.sh & exit'
 export PATH=$PATH:/usr/local/go/bin
 
 # Local env vars
-FILE=./load_env.sh
-if test -f "$FILE"; then
-    . /home/regodin/.dotfiles/load_env.sh
-fi
+function load_env() {
+    FILE=/home/regodin/.dotfiles/load_env.sh
+    if test -f "$FILE"; then
+        . /home/regodin/.dotfiles/load_env.sh
+    fi
+}
+
+# This function triggers the load_env scripts whenever the cd command is used
+function cd() {
+    builtin cd "$@" && load_env
+}
 
 . ~/.fancy-git/prompt.sh
 
