@@ -2,7 +2,7 @@
 vim.cmd[[
 augroup AutoformatBraces
 autocmd!
-autocmd FileType * inoremap <buffer> } }<Esc>v%= 
+autocmd FileType * inoremap <buffer> } }<Esc>v%=%a
 augroup END
 ]]
 
