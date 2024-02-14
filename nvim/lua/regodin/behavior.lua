@@ -1,8 +1,42 @@
--- Autoformat the text between braces when adding a closing brace
-vim.cmd[[
-augroup AutoformatBraces
-autocmd!
-autocmd FileType * inoremap <buffer> } }<Esc>v%=%a
-augroup END
-]]
+local autocmd_group = vim.api.nvim_create_augroup(
+"Custom auto-commands",
+{clear = true})
 
+-- Autoformat
+local autoformat_file_ext = {
+    "*.go",
+    "*.rs",
+    ".py",
+    ".c",
+    ".cpp"
+}
+
+vim.api.nvim_create_autocmd({"InsertLeave"},
+{
+    pattern = autoformat_file_ext,
+    desc = "Auto format spacing after exiting insert mode",
+    callback = function()
+        -- Logic goes here
+        local cursor_pos = vim.api.nvim_win_get_cursor(0)
+        vim.api.nvim_input("ggvG=")
+        vim.api.nvim_win_set_cursor(cursor_pos, 0)
+    end,
+    group = autocmd_group,
+})
+
+-- Text wrapping
+local textwrap_file_ext = {
+    "*.md",
+    "*.typ",
+    "*.txt"
+}
+
+vim.api.nvim_create_autocmd({"BufEnter"},
+{
+    pattern = textwrap_file_ext,
+    desc = "Auto activate text wrapping on certain file format",
+    callback = function()
+        vim.api.nvim_set_option_value("wrap", true, { scope = "local"})
+    end,
+    group = autocmd_group,
+})
