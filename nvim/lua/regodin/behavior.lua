@@ -6,9 +6,10 @@ local autocmd_group = vim.api.nvim_create_augroup(
 local autoformat_file_ext = {
     "*.go",
     "*.rs",
-    ".py",
-    ".c",
-    ".cpp"
+    "*.py",
+    "*.c",
+    "*.cpp",
+--    "*.typ"
 }
 
 vim.api.nvim_create_autocmd({"InsertLeave"},

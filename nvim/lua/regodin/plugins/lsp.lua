@@ -16,7 +16,8 @@ M.config = function()
             "rust_analyzer",
             "tsserver",
             "pyright",
-            "html"
+            "html",
+            "typst_lsp"
         }
     })
 
@@ -110,6 +111,9 @@ M.config = function()
         on_attach = on_attach
     }
     require('lspconfig').jdtls.setup {
+        on_attach = on_attach
+    }
+    require('lspconfig').typst_lsp.setup {
         on_attach = on_attach
     }
 end
