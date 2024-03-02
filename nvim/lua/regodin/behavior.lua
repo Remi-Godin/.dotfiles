@@ -12,15 +12,15 @@ local autoformat_file_ext = {
 --    "*.typ"
 }
 
-vim.api.nvim_create_autocmd({"InsertLeave"},
+vim.api.nvim_create_autocmd({"BufWrite"},
 {
     pattern = autoformat_file_ext,
     desc = "Auto format spacing after exiting insert mode",
     callback = function()
         -- Logic goes here
-        local cursor_pos = vim.api.nvim_win_get_cursor(0)
-        vim.api.nvim_input("ggvG=")
-        vim.api.nvim_win_set_cursor(cursor_pos, 0)
+        --local cursor_pos = vim.api.nvim_win_get_cursor(0)
+        --vim.api.nvim_input("ggvG=")
+        --vim.api.nvim_win_set_cursor(cursor_pos, 0)
     end,
     group = autocmd_group,
 })
