@@ -18,9 +18,10 @@ then
 
     # Create missing folders
     echo "Creating missing directories..."
-    mkdir -p ~/Programming/Repos/practice
-    mkdir -p ~/Programming/Repos/projects
-    mkdir -p ~/Programming/Repos/school
+    mkdir -p ~/Programming/practice
+    mkdir -p ~/Programming/projects
+    mkdir -p ~/Programming/school
+    mkdir -p ~/Programming/clones
     mkdir -p ~/.config
     mkdir -p ~/.local/bin
 
