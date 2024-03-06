@@ -169,7 +169,7 @@ alias dotfiles='cd /home/regodin/.dotfiles'
 alias udemy='cd /home/regodin/Programming/Repos/udemy/backend-master-class'
 alias air='~/go/bin/air'
 alias intellij='/home/regodin/.intellij/bin/idea.sh & exit'
-alias typst='/home/regodin/Programming/Repos/others/typst/target/release/typst'
+alias typst='/home/regodin/Programming/clones/typst/target/release/typst'
 
 # Go
 export PATH=$PATH:/usr/local/go/bin

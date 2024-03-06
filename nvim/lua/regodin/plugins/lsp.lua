@@ -16,6 +16,7 @@ M.config = function()
             "rust_analyzer",
             "tsserver",
             "pyright",
+            "pylsp",
             "html",
             "typst_lsp"
         }
@@ -104,9 +105,12 @@ M.config = function()
     require('lspconfig').tsserver.setup {
         on_attach = on_attach
     }
-    require('lspconfig').pyright.setup {
+    require('lspconfig').pylsp.setup {
         on_attach = on_attach
     }
+    --require('lspconfig').pyright.setup {
+        --on_attach = on_attach
+    --}
     require('lspconfig').html.setup {
         on_attach = on_attach
     }
