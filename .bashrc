@@ -170,6 +170,7 @@ alias udemy='cd /home/regodin/Programming/Repos/udemy/backend-master-class'
 alias air='~/go/bin/air'
 alias intellij='/home/regodin/.intellij/bin/idea.sh & exit'
 alias typst='/home/regodin/Programming/clones/typst/target/release/typst'
+alias blender='/home/regodin/.blender/blender-4.0.2-linux-x64/blender'
 
 # Go
 export PATH=$PATH:/usr/local/go/bin
