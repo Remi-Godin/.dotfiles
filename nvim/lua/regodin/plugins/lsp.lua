@@ -120,6 +120,9 @@ M.config = function()
     require('lspconfig').typst_lsp.setup {
         on_attach = on_attach
     }
+    require('lspconfig').wgsl_analyzer.setup {
+        on_attach = on_attach
+    }
 end
 
 return M
