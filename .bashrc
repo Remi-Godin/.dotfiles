@@ -169,8 +169,8 @@ alias dotfiles='cd /home/regodin/.dotfiles'
 alias udemy='cd /home/regodin/Programming/Repos/udemy/backend-master-class'
 alias air='~/go/bin/air'
 alias intellij='/home/regodin/.intellij/bin/idea.sh & exit'
-alias typst='/home/regodin/Programming/clones/typst/target/release/typst'
-alias blender='/home/regodin/.blender/blender-4.0.2-linux-x64/blender'
+alias typst='/home/regodin/Development/Repos/typst/target/release/typst'
+alias blender='/home/regodin/.blender/blender-4.1.0-linux-x64/blender'
 
 # Go
 export PATH=$PATH:/usr/local/go/bin
@@ -188,8 +188,8 @@ function cd() {
     builtin cd "$@" && load_env
 }
 
-. ~/.fancy-git/prompt.sh
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+. ~/.fancy-git/prompt.sh

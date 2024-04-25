@@ -22,40 +22,40 @@ then
     sudo apt-get install curl
     sudo apt-get install npm
     # Delete current files and folders
-    echo "Deleting default directories..."
-    cd
-    rm -rf ~/.config/nvim
-    rm -f ~/.fancy-git/app_config
+    #echo "Deleting default directories..."
+    #cd
+    #rm -rf ~/.config/nvim
+    #rm -f ~/.fancy-git/app_config
 
     # Create missing folders
-    echo "Creating missing directories..."
-    mkdir -p ~/Programming/practice
-    mkdir -p ~/Programming/projects
-    mkdir -p ~/Programming/school
-    mkdir -p ~/Programming/clones
-    mkdir -p ~/.config
-    mkdir -p ~/.local/bin
+    #echo "Creating missing directories..."
+    #mkdir -p ~/Programming/practice
+    #mkdir -p ~/Programming/projects
+    #mkdir -p ~/Programming/school
+    #mkdir -p ~/Programming/clones
+    #mkdir -p ~/.config
+    #mkdir -p ~/.local/bin
 
     # Install lazygit
-    echo "Installing lazygit..."
-    if ! command -v lazygit &> /dev/null
-    then
-    LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-    curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-    tar xf lazygit.tar.gz lazygit
-    sudo install lazygit /usr/local/bin
-    else
-        echo "Lazygit already exists..."
-    fi
+    #echo "Installing lazygit..."
+    #if ! command -v lazygit &> /dev/null
+    #then
+    #LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+    #curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+    #tar xf lazygit.tar.gz lazygit
+    #sudo install lazygit /usr/local/bin
+    #else
+        #echo "Lazygit already exists..."
+    #fi
 
     # Install fancygit
-    echo "Installing fancygit"
-    if ! command -v fancygit &> /dev/null
-    then
-    curl -sS https://raw.githubusercontent.com/diogocavilha/fancy-git/master/install.sh | sh
-    else
-        echo "Fancygit already exists..."
-    fi
+    #echo "Installing fancygit"
+    #if ! command -v fancygit &> /dev/null
+    #then
+    #curl -sS https://raw.githubusercontent.com/diogocavilha/fancy-git/master/install.sh | sh
+    #else
+        #echo "Fancygit already exists..."
+    #fi
 
     # Create links
     echo "Creating softlinks..."
