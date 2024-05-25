@@ -16,7 +16,6 @@ M.config = function()
             "rust_analyzer",
             "tsserver",
             "pyright",
-            "pylsp",
             "html",
             "typst_lsp"
         }
