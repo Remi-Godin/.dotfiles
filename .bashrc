@@ -162,7 +162,7 @@ alias anki="anki & exit"
 alias :q=exit
 alias dev='cd /home/regodin/Development/; ll'
 alias practice='cd /home/regodin/Programming/practice; ll'
-alias school='cd /home/regodin/Programming/school; ll'
+alias school='cd /home/regodin/Syncthing/Sync_01/University/Classes/; ll'
 alias clones='cd /home/regodin/Programming/clones; ll'
 alias hack-the-president='ssh -i /home/regodin/.ssh/presidentKey.pem ec2-user@34.217.69.183'
 alias dotfiles='cd /home/regodin/.dotfiles'
@@ -171,9 +171,14 @@ alias air='~/go/bin/air'
 alias intellij='/home/regodin/.intellij/bin/idea.sh & exit'
 alias typst='/home/regodin/Development/Repos/typst/target/release/typst'
 alias blender='/home/regodin/.blender/blender-4.1.0-linux-x64/blender'
+alias audio-reset='systemctl --user restart pipewire.service'
+alias nosleep='python3 /home/regodin/mouse_mover.py &'
+alias merge-pdfs='for f in *; do mv -- "$f" "$(date -r "$f" +%s)-$f"; done; pdftk *.pdf cat output merged.pdf;'
 
 # Go
 export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$PATH:/home/regodin/go
+export PATH=$GOPATH/bin
 
 # Local env vars
 function load_env() {

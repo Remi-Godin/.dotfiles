@@ -17,7 +17,8 @@ M.config = function()
             "tsserver",
             "pyright",
             "html",
-            "typst_lsp"
+            "typst_lsp",
+            "sqls",
         }
     })
 
@@ -120,6 +121,9 @@ M.config = function()
         on_attach = on_attach
     }
     require('lspconfig').wgsl_analyzer.setup {
+        on_attach = on_attach
+    }
+    require('lspconfig').sqls.setup {
         on_attach = on_attach
     }
 end
