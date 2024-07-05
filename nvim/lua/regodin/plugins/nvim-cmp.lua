@@ -16,29 +16,29 @@ local M = {
             "L3MON4D3/LuaSnip",
             build = "make install_jsregexp",
         },
-        "rafamadriz/friendly-snippets"
+        -- Uncomment to get snippet library [DRASTICALLY INCREASES LOAD TIMES]
+        --"rafamadriz/friendly-snippets"
     },
 }
 
 M.config = function()
-    require('luasnip.loaders.from_vscode').load{}
+    -- Luasnip config
+    local ls = require("luasnip")
+    ls.setup()
+    -- Load snippets
+    for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/regodin/custom/snippets/*.lua", true)) do
+        loadfile(ft_path)()
+    end
+    -- Cmp config
     local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-    local luasnip = require('luasnip')
     local cmp = require("cmp")
     vim.opt.completeopt = { "menu", "menuone", "noselect" }
-    
+
     -- This is required to get automatic parenthesis after autocomplete function
     cmp.event:on(
         'confirm_done',
         cmp_autopairs.on_confirm_done()
     )
-
-    local has_words_before = function()
-        unpack = unpack or table.unpack
-        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-
-    end
     cmp.setup({
         snippet = {
             expand = function(args)
@@ -64,20 +64,16 @@ M.config = function()
             ["<Tab>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
                     cmp.select_next_item()
-                    -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable() 
-                    -- that way you will only jump inside the snippet region
-                elseif luasnip.expand_or_jumpable() then
-                    luasnip.expand_or_jump()
-                --elseif has_words_before() then
-                    --cmp.complete()
+                elseif ls.expand_or_jumpable() then
+                    ls.expand_or_jump()
                 else
                     fallback()
                 end
             end, { "i", "s" }),
 
             ["<S-Tab>"] = cmp.mapping(function(fallback)
-                if luasnip.expand_or_jumpable() then
-                    luasnip.expand_or_jump()
+                if ls.expand_or_jumpable() then
+                    ls.expand_or_jump()
                 elseif cmp.visible() then
                     cmp.select_prev_item()
                 else
@@ -86,13 +82,23 @@ M.config = function()
             end, { "i", "s" }),
         }),
         sources = cmp.config.sources({
-            { name = "nvim_lsp" },
-            { name = "nvim_lua" },
-            { name = "luasnip" }, -- For luasnip users.
+            { name = "nvim_lsp", priority = 8 },
+            { name = "nvim_lua", priority = 8 },
+            { name = "luasnip", priority = 7 }, -- For luasnip users.
         }, {
             { name = "buffer" },
             { name = "path" },
         }),
+        sorting = {
+            priority_weight = 1.0,
+            comparators = {
+                cmp.locality,
+                cmp.recently_used,
+                cmp.score,
+                cmp.offset,
+                cmp.order,
+            }
+        },
     })
 
     cmp.setup.cmdline(":", {
