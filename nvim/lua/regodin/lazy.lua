@@ -11,4 +11,10 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("regodin.plugins")
+require("lazy").setup({
+    import = "regodin.plugins"
+}, {
+    change_detection = {
+        notify = false,
+    }
+})

@@ -29,7 +29,7 @@ vim.api.nvim_create_autocmd({"BufWrite"},
 local textwrap_file_ext = {
     "*.md",
     "*.typ",
-    --"*.txt"
+    "*.txt"
 }
 
 vim.api.nvim_create_autocmd({"BufEnter"},

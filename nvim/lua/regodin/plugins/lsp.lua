@@ -1,6 +1,6 @@
 local M = {
-        "neovim/nvim-lspconfig",
-        dependencies = {
+    "neovim/nvim-lspconfig",
+    dependencies = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
     }
@@ -9,7 +9,7 @@ local M = {
 M.config = function()
     require("mason").setup()
     require("mason-lspconfig").setup({
-        ensure_installed = { 
+        ensure_installed = {
             "lua_ls",
             "gopls",
             "clangd",
@@ -35,7 +35,7 @@ M.config = function()
             vim.diagnostic.goto_next({
                 float = {
                     float = true,
-                    scope = "line"
+                    scope = "line",
                 }
             })
         else
@@ -63,24 +63,15 @@ M.config = function()
 
         local _border = "rounded"
         vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-            vim.lsp.handlers.hover, {
-                border = _border
-            }
+        vim.lsp.handlers.hover, {
+            border = _border
+        }
         )
     end
 
     require('lspconfig').lua_ls.setup {
         on_attach = on_attach
     }
-    --require('lspconfig').rust_analyzer.setup {
-        --on_attach = on_attach,
-        --completion = {
-            --callSnippet = "Both"
-        --},
-        --cmd = {
-            --"rustup", "run", "stable", "rust-analyzer"
-        --}
-    --}
     require('lspconfig').rust_analyzer.setup {
         on_attach = on_attach
     }
@@ -108,9 +99,6 @@ M.config = function()
     require('lspconfig').pylsp.setup {
         on_attach = on_attach
     }
-    --require('lspconfig').pyright.setup {
-        --on_attach = on_attach
-    --}
     require('lspconfig').html.setup {
         on_attach = on_attach
     }
