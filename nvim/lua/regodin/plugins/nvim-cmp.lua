@@ -56,10 +56,6 @@ M.config = function()
             ["<C-e>"] = cmp.mapping.abort(),
             ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 
-            ["<S-Space>"] = cmp.mapping(function (fallback)
-
-            end),
-                
             -- Tab control for cmp and luasnip
             ["<Tab>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
