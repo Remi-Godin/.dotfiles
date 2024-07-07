@@ -9,7 +9,6 @@ local function getPath()
     local path = vim.api.nvim_buf_get_name(0)
     if path.len(path) > max_len then
         local start = string.find(path, '/', string.len(path) - max_len, true)
-        print(start)
         if start ~= nil then
             return string.format("...%s", string.sub(path, start, string.len(path)))
         end
@@ -22,8 +21,8 @@ end
 M.config = function()
     require('lualine').setup({
         sections = {
-            lualine_c = { getPath },
-            lualine_x = {'encoding', 'filetype'},
+            lualine_c = { 'hostname', getPath },
+            lualine_x = {'encoding', 'fileformat', 'filetype'},
         }
     })
 end
