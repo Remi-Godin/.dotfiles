@@ -83,9 +83,9 @@ M.config = function()
             end, { "i", "s" }),
         }),
         sources = cmp.config.sources({
+            { name = "luasnip", priority = 6 }, -- For luasnip users.
             { name = "nvim_lsp", priority = 8 },
             { name = "nvim_lua", priority = 8 },
-            { name = "luasnip", priority = 8 }, -- For luasnip users.
         }, {
             { name = "buffer" },
             { name = "path" },
@@ -93,9 +93,9 @@ M.config = function()
         sorting = {
             priority_weight = 1.0,
             comparators = {
+                cmp.score,
                 cmp.locality,
                 cmp.recently_used,
-                cmp.score,
                 cmp.offset,
                 cmp.order,
             }
