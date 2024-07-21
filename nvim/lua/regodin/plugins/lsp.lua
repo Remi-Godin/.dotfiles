@@ -24,8 +24,16 @@ M.config = function()
 
     --local _capabilities = require('cmp_nvim_lsp').default_capabilities -- OLD LINE
     --This lines should make it so autocompleting functions also expands the parenthesis and parameters
+    --local _capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
     local _capabilities = vim.lsp.protocol.make_client_capabilities()
     _capabilities.textDocument.completion.completionItem.snippetSupport = true
+    _capabilities.textDocument.completion.completionItem.resolveSupport = {
+        properties = {
+            "documentation",
+            "detail",
+            "additionalTextEdits",
+        },
+    }
 
     local goto_next_error_line = function ()
         local ec = #vim.diagnostic.count(0, {
@@ -113,6 +121,14 @@ M.config = function()
     }
     require('lspconfig').sqls.setup {
         on_attach = on_attach
+    }
+    require('lspconfig').html.setup {
+        on_attach = on_attach,
+        capabilities = _capabilities
+    }
+    require('lspconfig').cssls.setup {
+        on_attach = on_attach,
+        capabilities = _capabilities
     }
 end
 

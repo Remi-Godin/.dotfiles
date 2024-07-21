@@ -15,14 +15,19 @@ local M = {
         {
             "L3MON4D3/LuaSnip",
             build = "make install_jsregexp",
+            dependencies = {
+                "rafamadriz/friendly-snippets",
+            }
         },
         -- Uncomment to get snippet library [DRASTICALLY INCREASES LOAD TIMES]
-        --"rafamadriz/friendly-snippets"
     },
 }
 
 M.config = function()
     -- Luasnip config
+    require("luasnip.loaders.from_vscode").lazy_load {
+        include = { "html", "css" }
+    }
     local ls = require("luasnip")
     ls.setup()
     -- Load snippets
@@ -80,7 +85,7 @@ M.config = function()
         sources = cmp.config.sources({
             { name = "nvim_lsp", priority = 8 },
             { name = "nvim_lua", priority = 8 },
-            { name = "luasnip", priority = 7 }, -- For luasnip users.
+            { name = "luasnip", priority = 8 }, -- For luasnip users.
         }, {
             { name = "buffer" },
             { name = "path" },
