@@ -83,12 +83,11 @@ M.config = function()
             end, { "i", "s" }),
         }),
         sources = cmp.config.sources({
-            { name = "luasnip", priority = 6 }, -- For luasnip users.
-            { name = "nvim_lsp", priority = 8 },
-            { name = "nvim_lua", priority = 8 },
-        }, {
-            { name = "buffer" },
-            { name = "path" },
+            { name = "luasnip", priority = 1 },
+            { name = "nvim_lsp", priority = 2 },
+            { name = "nvim_lua", priority = 2 },
+            { name = "buffer", priority = 3 },
+            { name = "path", priority = 3 },
         }),
         sorting = {
             priority_weight = 1.0,
