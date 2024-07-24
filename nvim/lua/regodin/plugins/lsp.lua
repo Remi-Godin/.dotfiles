@@ -130,6 +130,9 @@ M.config = function()
         on_attach = on_attach,
         capabilities = _capabilities
     }
+    require('lspconfig').htmx.setup {
+        on_atach = on_attach
+    }
 end
 
 return M
