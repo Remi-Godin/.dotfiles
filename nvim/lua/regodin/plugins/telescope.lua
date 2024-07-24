@@ -9,6 +9,13 @@ M.config = function()
     vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
     vim.keymap.set('n', '<leader>pg', builtin.live_grep, {})
     vim.keymap.set('n', '<leader>tt', "<cmd>Telescope<CR>", {})
+    require('telescope').setup({
+        pickers = {
+            find_files = {
+                hidden = true,
+            }
+        }
+    })
 end
 
 return M

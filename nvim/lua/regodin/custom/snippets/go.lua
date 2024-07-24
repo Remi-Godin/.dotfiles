@@ -13,3 +13,13 @@ ls.add_snippets("go", {
     })
 })
 
+ls.add_snippets("go", {
+    -- handlefunc
+    s("hf", {
+        t({"func "}),
+        i(1),
+        t({"(w http.ResponseWriter, r *http.Request) {","\t"}),
+        i(2),
+        t({"", "}", ""})
+    })
+})
