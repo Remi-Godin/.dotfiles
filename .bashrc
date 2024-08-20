@@ -173,6 +173,7 @@ alias blender='/home/regodin/.blender/blender-4.1.0-linux-x64/blender'
 alias audio-reset='systemctl --user restart pipewire.service'
 alias nosleep='python3 /home/regodin/mouse_mover.py &'
 alias merge-pdfs='for f in *; do mv -- "$f" "$(date -r "$f" +%s)-$f"; done; pdftk *.pdf cat output merged.pdf;'
+alias java-switch-version='sudo update-alternatives --config java'
 
 # Go
 export PATH=$PATH:/usr/local/go/bin
@@ -197,3 +198,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 . ~/.fancy-git/prompt.sh
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
