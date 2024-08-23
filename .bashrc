@@ -174,6 +174,7 @@ alias audio-reset='systemctl --user restart pipewire.service'
 alias nosleep='python3 /home/regodin/mouse_mover.py &'
 alias merge-pdfs='for f in *; do mv -- "$f" "$(date -r "$f" +%s)-$f"; done; pdftk *.pdf cat output merged.pdf;'
 alias java-switch-version='sudo update-alternatives --config java'
+alias fix-intellij='rm ./.var/app/com.jetbrains.IntelliJ-IDEA-Community/config/JetBrains/IdeaIC2024.1/.lock'
 
 # Go
 export PATH=$PATH:/usr/local/go/bin
