@@ -121,49 +121,18 @@ if ! shopt -oq posix; then
 fi
 . "$HOME/.cargo/env"
 
-vpn_enable(){
-    mullvad connect
-    sleep 1
-    mullvad lockdown-mode set on
-    sleep 3
-    mullvad status
-}
-
-vpn_disable(){
-    killall qbittorrent
-    sleep 3
-    mullvad lockdown-mode set off
-    mullvad disconnect
-    sleep 3
-    mullvad status
-}
-
-launch_godot(){
-    ./Godot/Versions/4.2-dev4/Godot_v4.2-dev4_linux.x86_64 &
-    exit
-}
-
-launch_plptool(){
-    plptool5 &
-    exit
-}
-
-
 alias glog='git log --graph --decorate --oneline'
 alias cdnvim='cd ~/.dotfiles/nvim; vi .'
 alias ..='cd ..'
-alias plptool=launch_plptool
 alias vi=nvim
 alias grip='grip -b'
-alias vpn-enable=vpn_enable
-alias vpn-disable=vpn_disable
-alias nvim-update=update_nvim
 alias anki="anki & exit"
 alias :q=exit
 alias dev='cd /home/regodin/Development/; ll'
-alias practice='cd /home/regodin/Programming/practice; ll'
+alias practice='cd /home/regodin/Development/Practice/; ll'
 alias school='cd /home/regodin/Syncthing/Sync_01/University/Classes/; ll'
-alias clones='cd /home/regodin/Programming/clones; ll'
+alias clones='cd /home/regodin/Development/Clones/; ll'
+alias projects='cd /home/regodin/Development/Projects/; ll'
 alias dotfiles='cd /home/regodin/.dotfiles'
 alias udemy='cd /home/regodin/Programming/Repos/udemy/backend-master-class'
 alias air='~/go/bin/air'
@@ -175,24 +144,12 @@ alias nosleep='python3 /home/regodin/mouse_mover.py &'
 alias merge-pdfs='for f in *; do mv -- "$f" "$(date -r "$f" +%s)-$f"; done; pdftk *.pdf cat output merged.pdf;'
 alias java-switch-version='sudo update-alternatives --config java'
 alias fix-intellij='rm ./.var/app/com.jetbrains.IntelliJ-IDEA-Community/config/JetBrains/IdeaIC2024.1/.lock'
+alias t="gnome-terminal ./"
 
 # Go
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$PATH:/home/regodin/go
 export PATH=$GOPATH/bin
-
-# Local env vars
-function load_env() {
-    FILE=/home/regodin/.dotfiles/load_env.sh
-    if test -f "$FILE"; then
-        . /home/regodin/.dotfiles/load_env.sh
-    fi
-}
-
-# This function triggers the load_env scripts whenever the cd command is used
-function cd() {
-    builtin cd "$@" && load_env
-}
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
