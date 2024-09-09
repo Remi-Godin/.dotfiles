@@ -14,7 +14,7 @@ M.config = function()
             "gopls",
             "clangd",
             "rust_analyzer",
-            "tsserver",
+            "ts_ls",
             "pyright",
             "html",
             "typst_lsp",
@@ -101,7 +101,7 @@ M.config = function()
     require('lspconfig').clangd.setup {
         on_attach = on_attach
     }
-    require('lspconfig').tsserver.setup {
+    require('lspconfig').ts_ls.setup {
         on_attach = on_attach
     }
     require('lspconfig').pyright.setup {
