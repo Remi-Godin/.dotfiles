@@ -10,18 +10,16 @@ M.config = function ()
         format_after_save = {
             lsp_fallback = false,
         },
+        format_on_save = {
+            timeout_ms = 500,
+            lsp_format = "fallback",
+        },
         formatters_by_ft = {
-            go = { lsp_format = "first", "goimport", "golines" },
+            go = { lsp_format = "first", "goimports", "golines" },
+            rust = { lsp_format = "rustfmt" }
         }
     })
 end
-
-vim.api.nvim_create_autocmd("BufWrite", {
-    pattern = "*",
-    callback = function(args)
-        require('conform').format({ bufnr = args.buf })
-    end,
-})
 
 
 return M
