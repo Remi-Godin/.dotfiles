@@ -17,6 +17,7 @@ M.config = function()
             "ts_ls",
             "pyright",
             "html",
+            "htmx",
             "typst_lsp",
             "sqls",
         }
