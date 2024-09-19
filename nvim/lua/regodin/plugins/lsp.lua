@@ -35,9 +35,9 @@ M.config = function()
         },
     }
 
-    local goto_next_error_line = function ()
+    local goto_next_error_line = function()
         local ec = #vim.diagnostic.count(0, {
-            lnum = vim.api.nvim_win_get_cursor(0)[1]-1
+            lnum = vim.api.nvim_win_get_cursor(0)[1] - 1
         })
         if ec == 0 then
             vim.diagnostic.goto_next({
@@ -60,7 +60,7 @@ M.config = function()
         vim.keymap.set('n', 'gk', vim.diagnostic.goto_prev, {})
         vim.keymap.set('n', 'gj', goto_next_error_line, {})
         vim.keymap.set('n', 'gl', vim.diagnostic.open_float, {})
-        vim.keymap.set('n', '<leader>gl', ":Telescope diagnostics<cr>", {buffer=0})
+        vim.keymap.set('n', '<leader>gl', ":Telescope diagnostics<cr>", { buffer = 0 })
 
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {})
@@ -71,9 +71,9 @@ M.config = function()
 
         local _border = "rounded"
         vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-        vim.lsp.handlers.hover, {
-            border = _border
-        }
+            vim.lsp.handlers.hover, {
+                border = _border
+            }
         )
     end
 
@@ -132,6 +132,9 @@ M.config = function()
     }
     require('lspconfig').htmx.setup {
         on_atach = on_attach
+    }
+    require('lspconfig').texlab.setup {
+        on_attach = on_attach
     }
 end
 
