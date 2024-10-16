@@ -83,22 +83,22 @@ M.config = function()
             end, { "i", "s" }),
         }),
         sources = cmp.config.sources({
-            { name = "luasnip", priority = 1 },
-            { name = "nvim_lsp", priority = 2 },
-            { name = "nvim_lua", priority = 2 },
-            { name = "buffer", priority = 3 },
-            { name = "path", priority = 3 },
+            { name = "luasnip" },
+            { name = "nvim_lsp" },
+            { name = "nvim_lua" },
+            { name = "buffer" },
+            { name = "path" },
         }),
-        sorting = {
-            priority_weight = 1.0,
-            comparators = {
-                cmp.score,
-                cmp.locality,
-                cmp.recently_used,
-                cmp.offset,
-                cmp.order,
-            }
-        },
+        -- sorting = {
+        --     priority_weight = 1.0,
+        --     comparators = {
+        --         cmp.score,
+        --         cmp.locality,
+        --         cmp.recently_used,
+        --         cmp.offset,
+        --         cmp.order,
+        --     }
+        -- },
     })
 
     cmp.setup.cmdline(":", {
