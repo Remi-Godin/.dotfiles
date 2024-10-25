@@ -143,10 +143,11 @@ alias audio-reset='systemctl --user restart pipewire.service'
 alias nosleep='python3 /home/regodin/mouse_mover.py &'
 alias merge-pdfs='for f in *; do mv -- "$f" "$(date -r "$f" +%s)-$f"; done; pdftk *.pdf cat output merged.pdf;'
 alias java-switch-version='sudo update-alternatives --config java'
-alias fix-intellij='rm ./.var/app/com.jetbrains.IntelliJ-IDEA-Community/config/JetBrains/IdeaIC2024.1/.lock'
+alias fix-intellij='rm /home/regodin/.var/app/com.jetbrains.IntelliJ-IDEA-Community/config/JetBrains/IdeaIC2024.1/.lock'
 alias t="gnome-terminal ./"
 alias act="~/bin/act"
 alias update-nvim="cd /home/regodin/neovim/; git pull; make CMAKE_BUILD_TYPE=RelWithDebInfo; sudo make install;"
+alias gradle="~/Downloads/gradle-7.4.2-bin/gradle-7.4.2/bin/gradle"
 
 # Go
 export PATH=$PATH:/usr/local/go/bin

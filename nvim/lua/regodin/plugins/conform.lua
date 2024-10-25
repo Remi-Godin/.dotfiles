@@ -31,6 +31,7 @@ M.config = function()
         formatters_by_ft = {
             go = { lsp_format = "first", "goimports", "golines" },
             rust = { lsp_format = "rustfmt" },
+            c = { lsp_format = "clang-format" }
             --html = { "prettier" }
         }
     })
