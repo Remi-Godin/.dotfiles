@@ -138,7 +138,6 @@ alias udemy='cd /home/regodin/Programming/Repos/udemy/backend-master-class'
 alias air='~/go/bin/air'
 alias intellij='/home/regodin/.intellij/bin/idea.sh & exit'
 alias typst='/home/regodin/Development/Repos/typst/target/release/typst'
-alias blender='/home/regodin/.blender/blender-4.1.0-linux-x64/blender'
 alias audio-reset='systemctl --user restart pipewire.service'
 alias nosleep='python3 /home/regodin/mouse_mover.py &'
 alias merge-pdfs='for f in *; do mv -- "$f" "$(date -r "$f" +%s)-$f"; done; pdftk *.pdf cat output merged.pdf;'
@@ -148,6 +147,7 @@ alias t="gnome-terminal ./"
 alias act="~/bin/act"
 alias update-nvim="cd /home/regodin/neovim/; git pull; make CMAKE_BUILD_TYPE=RelWithDebInfo; sudo make install;"
 alias gradle="~/Downloads/gradle-7.4.2-bin/gradle-7.4.2/bin/gradle"
+alias blender='/home/regodin/.blender/blender-4.2.3-linux-x64/blender'
 
 # Go
 export PATH=$PATH:/usr/local/go/bin
@@ -163,3 +163,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+export PATH="$PATH:/usr/local/bin/ignition"
+alias ignition="/usr/local/bin/ignition/ignition.sh"
