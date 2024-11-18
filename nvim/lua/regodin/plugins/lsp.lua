@@ -115,7 +115,10 @@ M.config = function()
         on_attach = on_attach
     }
     require('lspconfig').typst_lsp.setup {
-        on_attach = on_attach
+        on_attach = on_attach,
+        settings = {
+            --exportPdf = "onType"
+        }
     }
     require('lspconfig').wgsl_analyzer.setup {
         on_attach = on_attach
