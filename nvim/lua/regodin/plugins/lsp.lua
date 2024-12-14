@@ -18,7 +18,7 @@ M.config = function()
             "pyright",
             "html",
             "htmx",
-            "typst_lsp",
+            "tinymist",
             "sqls",
         }
     })
@@ -114,10 +114,10 @@ M.config = function()
     require('lspconfig').jdtls.setup {
         on_attach = on_attach
     }
-    require('lspconfig').typst_lsp.setup {
+    require('lspconfig').tinymist.setup {
         on_attach = on_attach,
         settings = {
-            --exportPdf = "onType"
+            exportPdf = "never"
         }
     }
     require('lspconfig').wgsl_analyzer.setup {
